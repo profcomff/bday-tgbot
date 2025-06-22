@@ -1,0 +1,544 @@
+2025-06-22 18:40:23,835 INFO Scheduler started
+2025-06-22 18:40:23,836 INFO Start polling
+2025-06-22 18:40:23,990 INFO Run polling for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:40:32,221 INFO Update id=887420049 is handled. Duration 208 ms by bot id=7690462834
+2025-06-22 18:40:35,156 INFO Рандомное распределение по кругу: [3, 2]
+2025-06-22 18:40:35,241 INFO Update id=887420050 is handled. Duration 89 ms by bot id=7690462834
+2025-06-22 18:40:42,409 INFO Update id=887420051 is handled. Duration 146 ms by bot id=7690462834
+2025-06-22 18:41:00,673 INFO Update id=887420052 is handled. Duration 72 ms by bot id=7690462834
+2025-06-22 18:41:38,685 WARNING Received SIGINT signal
+2025-06-22 18:41:38,688 INFO Polling stopped for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:41:38,688 INFO Polling stopped
+2025-06-22 18:43:52,384 INFO Scheduler started
+2025-06-22 18:43:52,385 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:43:52,386 INFO Start polling
+2025-06-22 18:43:52,529 INFO Run polling for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:44:10,054 INFO Update id=887420053 is handled. Duration 212 ms by bot id=7690462834
+2025-06-22 18:44:20,304 INFO Update id=887420054 is handled. Duration 76 ms by bot id=7690462834
+2025-06-22 18:45:19,183 INFO /start регистрация: telegram_id=616762132
+2025-06-22 18:45:19,184 INFO Update id=887420055 is handled. Duration 149 ms by bot id=7690462834
+2025-06-22 18:45:28,421 INFO Update id=887420056 is handled. Duration 69 ms by bot id=7690462834
+2025-06-22 18:45:36,516 INFO Update id=887420057 is handled. Duration 111 ms by bot id=7690462834
+2025-06-22 18:45:46,287 INFO Регистрация: telegram_id=616762132, ФИО=Оропаева Кристина, birthday=12.04.2002, wish=Румбокс в стиле 2000х
+2025-06-22 18:45:46,426 INFO Update id=887420058 is handled. Duration 150 ms by bot id=7690462834
+2025-06-22 18:46:08,555 WARNING Received SIGINT signal
+2025-06-22 18:46:08,556 INFO Polling stopped for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:46:08,557 INFO Polling stopped
+2025-06-22 18:48:44,665 INFO Scheduler started
+2025-06-22 18:49:15,224 INFO Scheduler started
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:49:15,226 INFO Start polling
+2025-06-22 18:49:15,400 INFO Run polling for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:49:30,347 INFO Update id=887420059 is handled. Duration 232 ms by bot id=7690462834
+2025-06-22 18:49:37,718 INFO Рандомное распределение по кругу (без обратных пар): [1, 4, 2, 3]
+2025-06-22 18:49:37,788 INFO Update id=887420060 is handled. Duration 78 ms by bot id=7690462834
+2025-06-22 18:49:42,107 INFO Update id=887420061 is handled. Duration 116 ms by bot id=7690462834
+2025-06-22 18:50:48,079 INFO Update id=887420062 is handled. Duration 84 ms by bot id=7690462834
+2025-06-22 18:51:37,455 INFO Update id=887420063 is handled. Duration 88 ms by bot id=7690462834
+2025-06-22 18:51:48,457 WARNING Received SIGINT signal
+2025-06-22 18:51:48,460 INFO Polling stopped for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:51:48,461 INFO Polling stopped
+2025-06-22 18:51:52,639 INFO Scheduler started
+2025-06-22 18:51:52,640 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,641 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:51:52,642 INFO Start polling
+2025-06-22 18:51:52,802 INFO Run polling for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:51:55,917 INFO Update id=887420064 is handled. Duration 186 ms by bot id=7690462834
+2025-06-22 18:52:14,352 WARNING Received SIGINT signal
+2025-06-22 18:52:14,357 INFO Polling stopped for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:52:14,357 INFO Polling stopped
+2025-06-22 18:53:51,170 INFO Scheduler started
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,173 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,174 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,174 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,174 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,174 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,174 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:53:51,174 INFO Start polling
+2025-06-22 18:53:51,332 INFO Run polling for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:53:59,824 INFO Update id=887420065 is not handled. Duration 168 ms by bot id=7690462834
+2025-06-22 18:53:59,824 ERROR Cause exception while process update id=887420065 by bot id=7690462834
+TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 794
+Traceback (most recent call last):
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Downloads/Бот_ДР_РГ/bot.py", line 387, in help_command
+    await message.answer(text, parse_mode='HTML')
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 794
+2025-06-22 18:54:11,688 INFO Update id=887420066 is handled. Duration 148 ms by bot id=7690462834
+2025-06-22 18:54:18,154 INFO Update id=887420067 is not handled. Duration 49 ms by bot id=7690462834
+2025-06-22 18:54:18,155 ERROR Cause exception while process update id=887420067 by bot id=7690462834
+TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 512
+Traceback (most recent call last):
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Downloads/Бот_ДР_РГ/bot.py", line 396, in menu_command
+    await message.answer(text, parse_mode='HTML')
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 512
+2025-06-22 18:54:30,187 INFO Update id=887420068 is not handled. Duration 2 ms by bot id=7690462834
+2025-06-22 18:54:36,106 INFO Update id=887420069 is handled. Duration 208 ms by bot id=7690462834
+2025-06-22 18:55:01,661 INFO Update id=887420070 is handled. Duration 79 ms by bot id=7690462834
+2025-06-22 18:55:35,242 WARNING Received SIGINT signal
+2025-06-22 18:55:35,244 INFO Polling stopped for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:55:35,244 INFO Polling stopped
+2025-06-22 18:56:43,183 INFO Scheduler started
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,185 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:56:43,186 INFO Start polling
+2025-06-22 18:56:43,358 INFO Run polling for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:56:47,123 INFO Update id=887420071 is not handled. Duration 155 ms by bot id=7690462834
+2025-06-22 18:56:47,124 ERROR Cause exception while process update id=887420071 by bot id=7690462834
+TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 195
+Traceback (most recent call last):
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Downloads/Бот_ДР_РГ/bot.py", line 450, in admin_commands
+    await message.answer(text, parse_mode='HTML')
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 195
+2025-06-22 18:56:53,933 INFO Update id=887420072 is not handled. Duration 53 ms by bot id=7690462834
+2025-06-22 18:56:53,934 ERROR Cause exception while process update id=887420072 by bot id=7690462834
+TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 195
+Traceback (most recent call last):
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Downloads/Бот_ДР_РГ/bot.py", line 450, in admin_commands
+    await message.answer(text, parse_mode='HTML')
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 195
+2025-06-22 18:56:57,348 INFO Update id=887420073 is handled. Duration 76 ms by bot id=7690462834
+2025-06-22 18:57:16,842 INFO Update id=887420074 is handled. Duration 81 ms by bot id=7690462834
+2025-06-22 18:57:24,500 INFO Update id=887420075 is not handled. Duration 51 ms by bot id=7690462834
+2025-06-22 18:57:24,501 ERROR Cause exception while process update id=887420075 by bot id=7690462834
+TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 195
+Traceback (most recent call last):
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Downloads/Бот_ДР_РГ/bot.py", line 450, in admin_commands
+    await message.answer(text, parse_mode='HTML')
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rasulovakhmed/Library/Python/3.12/lib/python/site-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Unsupported start tag "ФИО_дарителя" at byte offset 195
+2025-06-22 18:57:33,794 WARNING Received SIGINT signal
+2025-06-22 18:57:33,799 INFO Polling stopped for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:57:33,800 INFO Polling stopped
+2025-06-22 18:58:11,409 INFO Scheduler started
+2025-06-22 18:58:11,410 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,410 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,410 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:11,411 INFO Start polling
+2025-06-22 18:58:11,563 INFO Run polling for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:58:13,459 INFO Update id=887420076 is handled. Duration 197 ms by bot id=7690462834
+2025-06-22 18:58:24,087 INFO Update id=887420077 is handled. Duration 93 ms by bot id=7690462834
+2025-06-22 18:58:27,628 INFO Рандомное распределение по кругу (без обратных пар): [3, 1, 2, 4]
+2025-06-22 18:58:27,628 INFO Removed job 3e93f6cb6b67454d84de84ac11a4e440
+2025-06-22 18:58:27,629 INFO Removed job d4ef30928e1f4c989d279c7d4ac95b46
+2025-06-22 18:58:27,629 INFO Removed job e86753f5ac624bec9cbb7827d4964d21
+2025-06-22 18:58:27,629 INFO Removed job 6846e7213fe7440c87ce9ee7d7613be3
+2025-06-22 18:58:27,629 INFO Removed job 2452e4283ed040159b662d1730036355
+2025-06-22 18:58:27,629 INFO Removed job ddcdf440d47a488290c7771c4402b480
+2025-06-22 18:58:27,629 INFO Removed job 2fee8c15aece4e73bee9ceb9f7b091bb
+2025-06-22 18:58:27,629 INFO Removed job 74ca920206104cf487dfd27da3412011
+2025-06-22 18:58:27,629 INFO Removed job 3928040da6e4438eba8d7f91dc42186d
+2025-06-22 18:58:27,629 INFO Removed job 2d7dfe20393b435ca54b2295ebe73500
+2025-06-22 18:58:27,629 INFO Removed job ffd0f05795844a37beaba0d7ce6ef671
+2025-06-22 18:58:27,629 INFO Removed job 7e2593a318cd4133a85e38bdbbe56de1
+2025-06-22 18:58:27,629 INFO Removed job 7b00343faaf04e15b5a3cce6bd6ee844
+2025-06-22 18:58:27,629 INFO Removed job d8fb2e5ee54d44d59e89b4c8b803721c
+2025-06-22 18:58:27,629 INFO Removed job 5f94938b996243fc86a0b8db65837241
+2025-06-22 18:58:27,629 INFO Removed job 17e024230dfe4e10a236cd59f0b216cb
+2025-06-22 18:58:27,629 INFO Removed job 6f2648a5f5154b60ba483de6f04186a8
+2025-06-22 18:58:27,629 INFO Removed job acac233b99af4993b52cb7c35f7a878b
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,630 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,631 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,632 INFO Added job "send_reminder" to job store "default"
+2025-06-22 18:58:27,706 INFO Update id=887420078 is handled. Duration 83 ms by bot id=7690462834
+2025-06-22 18:58:31,200 INFO Update id=887420079 is handled. Duration 99 ms by bot id=7690462834
+2025-06-22 18:58:43,900 INFO Update id=887420080 is handled. Duration 79 ms by bot id=7690462834
+2025-06-22 18:59:41,955 WARNING Received SIGINT signal
+2025-06-22 18:59:41,960 INFO Polling stopped for bot @profcomff_happybirthday_bot id=7690462834 - 'profcomff_happybirthday_bot'
+2025-06-22 18:59:41,961 INFO Polling stopped
