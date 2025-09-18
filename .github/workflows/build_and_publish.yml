@@ -3,8 +3,8 @@ name: Build, publish and deploy docker
 on:
   push:
     branches: ['main']
-  release:
-    types: [published]
+    tags:
+      - 'v*'
 
 env:
   REGISTRY: ghcr.io
@@ -12,12 +12,11 @@ env:
 
 jobs:
   build-and-push-image:
-    name: Build and push Docker image
+    name: Build and push
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,15 +28,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata for Docker
+      - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=tag
-            type=raw,value=latest,enable=${{ github.event_name == 'release' }}
-            type=raw,value=test,enable=${{ github.event_name == 'push' }}
+            type=ref,event=tag,enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+            type=raw,value=latest,enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+            type=raw,value=test,enable=true
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
@@ -48,99 +47,72 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy-testing:
-    name: Deploy to Testing
+    name: Deploy Testing
     needs: build-and-push-image
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    runs-on: [self-hosted, Linux, testing]
     environment:
-      name: testing
+      name: Testing
     env:
-      CONTAINER_NAME: tgbot_birthday_test
-
+      CONTAINER_NAME: com_profcomff_tgbot_birthday_test
+    permissions:
+      packages: read
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Log in to the Container registry
-        uses: docker/login-action@v2
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy to testing
-        env:
-          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
-          API_TOKEN: ${{ secrets.TEST_API_TOKEN }}
+      - name: Pull new version
+        run: docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test
+      
+      - name: Migrate DB
         run: |
-          # Pull the new image
-          docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test
-          
-          # Run database migrations
-          docker run --rm \
-            --env DATABASE_URL="$DATABASE_URL" \
+          docker run \
+            --rm \
+            --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --env API_TOKEN=${{ secrets.API_TOKEN }} \
+            --name ${{ env.CONTAINER_NAME }}_migration \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test \
             alembic upgrade head
-          
-          # Stop and remove old container if exists
-          docker stop $CONTAINER_NAME || true
-          docker rm $CONTAINER_NAME || true
-          
-          # Run new container
-          docker run -d --name $CONTAINER_NAME \
-            --restart unless-stopped \
-            --env DATABASE_URL="$DATABASE_URL" \
-            --env API_TOKEN="$API_TOKEN" \
+      
+      - name: Run new version
+        run: |
+          docker stop ${{ env.CONTAINER_NAME }} || true && docker rm ${{ env.CONTAINER_NAME }} || true
+          docker run \
+            --detach \
+            --restart on-failure:3 \
+            --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --env API_TOKEN=${{ secrets.API_TOKEN }} \
+            --name ${{ env.CONTAINER_NAME }} \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test
 
   deploy-production:
-    name: Deploy to Production
+    name: Deploy Production
     needs: build-and-push-image
-    runs-on: ubuntu-latest
-    if: github.event_name == 'release'
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: [self-hosted, Linux, production]
     environment:
-      name: production
+      name: Production
     env:
-      CONTAINER_NAME: tgbot_birthday_prod
-
+      CONTAINER_NAME: com_profcomff_tgbot_birthday_prod
+    permissions:
+      packages: read
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Log in to the Container registry
-        uses: docker/login-action@v2
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy to production
-        env:
-          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
-          API_TOKEN: ${{ secrets.PROD_API_TOKEN }}
+      - name: Pull new version
+        run: docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      
+      - name: Migrate DB
         run: |
-          # Pull the new image
-          docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          
-          # Run database migrations
-          docker run --rm \
-            --env DATABASE_URL="$DATABASE_URL" \
+          docker run \
+            --rm \
+            --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --env API_TOKEN=${{ secrets.API_TOKEN }} \
+            --name ${{ env.CONTAINER_NAME }}_migration \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
             alembic upgrade head
-          
-          # Stop and remove old container if exists
-          docker stop $CONTAINER_NAME || true
-          docker rm $CONTAINER_NAME || true
-          
-          # Run new container
-          docker run -d --name $CONTAINER_NAME \
-            --restart unless-stopped \
-            --env DATABASE_URL="$DATABASE_URL" \
-            --env API_TOKEN="$API_TOKEN" \
+      
+      - name: Run new version
+        run: |
+          docker stop ${{ env.CONTAINER_NAME }} || true && docker rm ${{ env.CONTAINER_NAME }} || true
+          docker run \
+            --detach \
+            --restart always \
+            --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --env API_TOKEN=${{ secrets.API_TOKEN }} \
+            --name ${{ env.CONTAINER_NAME }} \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
