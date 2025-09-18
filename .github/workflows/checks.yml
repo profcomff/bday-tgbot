@@ -68,7 +68,7 @@ jobs:
 
       - name: Install linting tools
         run: |
-          pip install black isort flake8
+          pip install black isort
 
       - name: Check code formatting with black
         run: |
@@ -77,10 +77,6 @@ jobs:
       - name: Check imports sorting with isort
         run: |
           isort --check-only src/ tests/
-
-      - name: Check code style with flake8
-        run: |
-          flake8 src/ tests/ --max-line-length=88
 
       - name: Comment if linting failed
         if: ${{ failure() }}

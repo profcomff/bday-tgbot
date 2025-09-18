@@ -330,19 +330,19 @@ async def show_pairs(message: types.Message):
         async with db.pool.acquire() as conn:
             pairs = await conn.fetch(
                 """
-                SELECT 
-                    g.id AS giver_id, 
+                SELECT
+                    g.id AS giver_id,
                     g.telegram_id AS giver_telegram_id,
-                    g.full_name AS giver_name, 
-                    w.id AS ward_id, 
+                    g.full_name AS giver_name,
+                    w.id AS ward_id,
                     w.telegram_id AS ward_telegram_id,
                     w.full_name AS ward_name,
                     w.birthday AS ward_birthday
-                FROM 
+                FROM
                     users g
-                JOIN 
+                JOIN
                     users w ON g.ward_id = w.id
-                ORDER BY 
+                ORDER BY
                     w.birthday
             """
             )
@@ -622,7 +622,6 @@ async def delete_user(message: types.Message):
             await message.answer(f"Пользователь с Telegram ID {telegram_id} не найден.")
             return
 
-        user_id = user["id"]
         ward_id = user["ward_id"]
         giver_id = user["giver_id"]
 

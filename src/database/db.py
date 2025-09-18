@@ -20,7 +20,7 @@ class Database:
                 max_size=10,
             )
             logging.info("DB pool created")
-        except Exception as e:
+        except Exception:
             logging.exception("Ошибка инициализации пула БД")
             raise
 

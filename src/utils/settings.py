@@ -1,5 +1,4 @@
 from typing import List
-from urllib.parse import urlparse, urlunparse
 
 from pydantic import BaseSettings
 
