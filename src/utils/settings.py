@@ -1,6 +1,8 @@
-from pydantic import BaseSettings
 from typing import List
 from urllib.parse import urlparse, urlunparse
+
+from pydantic import BaseSettings
+
 
 class Settings(BaseSettings):
     API_TOKEN: str
@@ -21,6 +23,7 @@ class Settings(BaseSettings):
         if self.DATABASE_URL.startswith("postgresql+asyncpg://"):
             return self.DATABASE_URL.replace("postgresql+asyncpg://", "postgresql://")
         return self.DATABASE_URL
+
 
 def get_settings() -> Settings:
     return Settings()

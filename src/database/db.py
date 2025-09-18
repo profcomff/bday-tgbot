@@ -1,6 +1,9 @@
-import asyncpg
 import logging
+
+import asyncpg
+
 from src.utils.settings import get_settings
+
 
 class Database:
     def __init__(self):
@@ -36,15 +39,15 @@ class Database:
                 if not self.pool:
                     logging.error("Failed to reinitialize DB pool")
                     return False
-                    
+
             async with self.pool.acquire() as conn:
                 row = await conn.fetchrow(
-                    "SELECT is_admin FROM users WHERE telegram_id = $1", 
-                    telegram_id
+                    "SELECT is_admin FROM users WHERE telegram_id = $1", telegram_id
                 )
-                return bool(row and (row.get('is_admin') or row['is_admin']))
+                return bool(row and (row.get("is_admin") or row["is_admin"]))
         except Exception as e:
             logging.exception(f"Error in is_admin check: {e}")
             return False
-        
+
+
 db = Database()

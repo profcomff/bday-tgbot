@@ -1,8 +1,9 @@
-import sys
 import os
+import sys
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config, pool, create_engine, MetaData
+from sqlalchemy import MetaData, create_engine, engine_from_config, pool
+
 from alembic import context
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -38,6 +39,7 @@ else:
     DATABASE_URL_SYNC = DATABASE_URL_RAW
 
 target_metadata = MetaData()
+
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode."""
