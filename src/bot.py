@@ -292,7 +292,6 @@ async def show_pairs(message: types.Message):
     
     try:
         async with db.pool.acquire() as conn:
-            # Получаем все пары
             pairs = await conn.fetch("""
                 SELECT 
                     g.id AS giver_id, 
@@ -324,7 +323,6 @@ async def show_pairs(message: types.Message):
                         f"   <b>Подопечный:</b> {pair['ward_name']} (ID: {pair['ward_telegram_id']})\n"
                         f"   <b>День рождения подопечного:</b> {bday_formatted}\n\n")
             
-            # Отправляем сообщение частями, если оно слишком длинное
             if len(text) > 4000:
                 parts = [text[i:i+4000] for i in range(0, len(text), 4000)]
                 for part in parts:
@@ -345,36 +343,28 @@ async def random_distribution(message: types.Message):
     
     try:
         async with db.pool.acquire() as conn:
-            # Получаем всех пользователей
             users = await conn.fetch('SELECT id FROM users ORDER BY id')
             
             if len(users) < 2:
                 await message.answer('Недостаточно пользователей для распределения пар (нужно минимум 2).')
                 return
             
-            # Создаем список ID пользователей
             user_ids = [user['id'] for user in users]
-            
-            # Перемешиваем список для случайного распределения
             shuffled_ids = user_ids.copy()
             random.shuffle(shuffled_ids)
             
-            # Распределяем пары по кругу: каждый дарит следующему в перемешанном списке
             pairs = []
             for i in range(len(shuffled_ids)):
                 giver_id = shuffled_ids[i]
                 ward_id = shuffled_ids[(i + 1) % len(shuffled_ids)]
                 pairs.append((giver_id, ward_id))
             
-            # Обновляем связи в базе данных
             for giver_id, ward_id in pairs:
                 await conn.execute('UPDATE users SET ward_id = $1 WHERE id = $2', ward_id, giver_id)
                 await conn.execute('UPDATE users SET giver_id = $1 WHERE id = $2', giver_id, ward_id)
             
-            # Логируем результат для отладки
             logging.info(f"Рандомное распределение по кругу: {shuffled_ids}")
             
-            # Обновляем напоминания
             await clear_all_reminders()
             await schedule_all_reminders()
             
@@ -382,9 +372,7 @@ async def random_distribution(message: types.Message):
     
     except Exception as e:
         logging.exception(f"Ошибка при рандомном распределении: {e}")
-        await message.answer(f"Произошла ошибка: {str(e)}")
-
-@router.message(Command('set'))
+        await message.answer(f"Произошла ошибка: {str(e)}")@router.message(Command('set'))
 async def set_pair(message: types.Message):
     """Назначение пары вручную по ID"""
     if not await db.is_admin(message.from_user.id):
@@ -404,7 +392,6 @@ async def set_pair(message: types.Message):
         return
     
     async with db.pool.acquire() as conn:
-        # Проверяем существование пользователей
         giver = await conn.fetchrow('SELECT id FROM users WHERE id = $1', giver_id)
         ward = await conn.fetchrow('SELECT id FROM users WHERE id = $1', ward_id)
         
@@ -415,11 +402,9 @@ async def set_pair(message: types.Message):
             await message.answer(f'Подопечный с ID {ward_id} не найден.')
             return
         
-        # Обновляем связи
         await conn.execute('UPDATE users SET ward_id = $1 WHERE id = $2', ward_id, giver_id)
         await conn.execute('UPDATE users SET giver_id = $1 WHERE id = $2', giver_id, ward_id)
     
-    # Обновляем напоминания
     await clear_all_reminders()
     await schedule_all_reminders()
     
@@ -492,7 +477,6 @@ async def set_pair_by_name(message: types.Message):
 @router.message(Command('make_admin'))
 async def make_admin_command(message: types.Message):
     """Назначение админа"""
-    # Проверяем, является ли отправитель админом
     if not await db.is_admin(message.from_user.id):
         await message.answer('Доступ запрещён.')
         return
@@ -509,14 +493,12 @@ async def make_admin_command(message: types.Message):
         return
     
     async with db.pool.acquire() as conn:
-        # Проверяем, существует ли пользователь
         user = await conn.fetchrow('SELECT id FROM users WHERE telegram_id = $1', telegram_id)
         
         if not user:
             await message.answer(f'Пользователь с Telegram ID {telegram_id} не найден.')
             return
         
-        # Назначаем админом
         await conn.execute('UPDATE users SET is_admin = true WHERE telegram_id = $1', telegram_id)
     
     await message.answer(f'Пользователь с Telegram ID {telegram_id} назначен администратором.')
@@ -539,13 +521,11 @@ async def delete_user(message: types.Message):
         await message.answer('Ошибка: ID должен быть числом.')
         return
     
-    # Запрещаем удалять самого себя
     if telegram_id == message.from_user.id:
         await message.answer('Вы не можете удалить самого себя.')
         return
     
     async with db.pool.acquire() as conn:
-        # Получаем ID пользователя для дальнейшей очистки связей
         user = await conn.fetchrow('SELECT id, ward_id, giver_id FROM users WHERE telegram_id = $1', telegram_id)
         
         if not user:
@@ -556,16 +536,13 @@ async def delete_user(message: types.Message):
         ward_id = user['ward_id']
         giver_id = user['giver_id']
         
-        # Очищаем связи, где пользователь был дарителем или подопечным
         if ward_id:
             await conn.execute('UPDATE users SET giver_id = NULL WHERE id = $1', ward_id)
         if giver_id:
             await conn.execute('UPDATE users SET ward_id = NULL WHERE id = $1', giver_id)
         
-        # Удаляем пользователя
         await conn.execute('DELETE FROM users WHERE telegram_id = $1', telegram_id)
     
-    # Обновляем напоминания
     await clear_all_reminders()
     await schedule_all_reminders()
     
@@ -589,13 +566,11 @@ async def revoke_admin_rights(message: types.Message):
         await message.answer('Ошибка: ID должен быть числом.')
         return
     
-    # Запрещаем лишать прав самого себя
     if telegram_id == message.from_user.id:
         await message.answer('Вы не можете лишить прав администратора самого себя.')
         return
     
     async with db.pool.acquire() as conn:
-        # Проверяем, существует ли пользователь и является ли он админом
         user = await conn.fetchrow('SELECT id, is_admin FROM users WHERE telegram_id = $1', telegram_id)
         
         if not user:
@@ -606,7 +581,6 @@ async def revoke_admin_rights(message: types.Message):
             await message.answer(f'Пользователь с Telegram ID {telegram_id} не является администратором.')
             return
         
-        # Лишаем пользователя прав администратора
         await conn.execute('UPDATE users SET is_admin = false WHERE telegram_id = $1', telegram_id)
     
     await message.answer(f'Пользователь с Telegram ID {telegram_id} лишен прав администратора.')
@@ -620,15 +594,13 @@ async def reset_connections(message: types.Message):
     
     parts = message.text.split()
     
-    # Сброс для всех пользователей
     if len(parts) == 1 or parts[1].lower() == 'all':
         async with db.pool.acquire() as conn:
             await conn.execute('UPDATE users SET ward_id = NULL, giver_id = NULL')
         await message.answer('Связи всех пользователей сброшены.')
-        await clear_all_reminders()  # Очищаем напоминания
+        await clear_all_reminders()
         return
     
-    # Сброс для конкретного пользователя
     try:
         user_id = int(parts[1])
     except ValueError:
@@ -636,27 +608,22 @@ async def reset_connections(message: types.Message):
         return
     
     async with db.pool.acquire() as conn:
-        # Проверяем существование пользователя
         user = await conn.fetchrow('SELECT id, ward_id, giver_id FROM users WHERE id = $1', user_id)
         
         if not user:
             await message.answer(f'Пользователь с ID {user_id} не найден.')
             return
-        
-        # Запоминаем текущие связи для удаления встречных ссылок
+
         ward_id = user['ward_id']
         giver_id = user['giver_id']
         
-        # Сбрасываем связи самого пользователя
         await conn.execute('UPDATE users SET ward_id = NULL, giver_id = NULL WHERE id = $1', user_id)
        
-        # Сбрасываем встречные связи
         if ward_id:
             await conn.execute('UPDATE users SET giver_id = NULL WHERE id = $1', ward_id)
         if giver_id:
             await conn.execute('UPDATE users SET ward_id = NULL WHERE id = $1', giver_id)
     
-    # Обновляем напоминания
     await clear_all_reminders()
     await schedule_all_reminders()
     
@@ -703,11 +670,9 @@ async def show_reminders(message: types.Message):
 async def menu_command(message: types.Message):
     """Список команд"""
     try:
-        # Всегда показываем пользовательские команды
         text = '<b>Доступные команды:</b>\n\n'
         text += '\n'.join(['• ' + c for c in USER_COMMANDS]) + '\n'
         
-        # Проверяем админские права только если БД доступна
         try:
             is_admin_flag = await db.is_admin(message.from_user.id)
             if is_admin_flag:
@@ -747,7 +712,7 @@ async def help_command(message: types.Message):
         logging.exception(f"Ошибка в команде help: {e}")
         await message.answer("Произошла ошибка при получении справки. Пожалуйста, попробуйте позже.")
 
-# ===== СИСТЕМА НАПОМИНАНИЙ =====
+# ===== НАПОМИНАНИЯ =====
 async def schedule_all_reminders():
     """Планирование всех напоминаний"""
     await clear_all_reminders()
@@ -767,7 +732,6 @@ async def schedule_all_reminders():
         if not bday or not giver_id:
             continue
         
-        # Определяем дату следующего ДР
         try:
             this_year = date(year=now.year, month=bday.month, day=bday.day)
         except ValueError:
@@ -779,7 +743,6 @@ async def schedule_all_reminders():
             except ValueError:
                 continue
 
-        # Планируем напоминания
         for days_before in REMINDER_OFFSETS:
             remind_date = this_year - timedelta(days=days_before)
             remind_dt = datetime.combine(remind_date, time(12, 0))

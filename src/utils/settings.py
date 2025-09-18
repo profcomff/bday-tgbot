@@ -1,4 +1,4 @@
-from pydantic import BaseSettings  # Используем старый импорт для Pydantic v1
+from pydantic import BaseSettings
 from typing import List
 from urllib.parse import urlparse, urlunparse
 
@@ -20,7 +20,6 @@ class Settings(BaseSettings):
         """
         if self.DATABASE_URL.startswith("postgresql+asyncpg://"):
             return self.DATABASE_URL.replace("postgresql+asyncpg://", "postgresql://")
-        # fallback: если уже в нужном формате
         return self.DATABASE_URL
 
 def get_settings() -> Settings:

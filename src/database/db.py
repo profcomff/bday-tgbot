@@ -32,7 +32,7 @@ class Database:
         try:
             if not self.pool:
                 logging.warning("DB pool is None, reinitializing...")
-                await self.init()  # Пробуем переинициализировать пул
+                await self.init()
                 if not self.pool:
                     logging.error("Failed to reinitialize DB pool")
                     return False
@@ -45,6 +45,6 @@ class Database:
                 return bool(row and (row.get('is_admin') or row['is_admin']))
         except Exception as e:
             logging.exception(f"Error in is_admin check: {e}")
-            return False  # В случае ошибки возвращаем False вместо вызова исключения
-
+            return False
+        
 db = Database()
