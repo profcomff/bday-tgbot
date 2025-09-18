@@ -1,0 +1,95 @@
+name: Python checks
+
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run migrations
+        env:
+          DATABASE_URL: postgresql://postgres@localhost:5432/postgres
+        run: |
+          alembic upgrade head
+
+      - name: Run tests
+        env:
+          DATABASE_URL: postgresql://postgres@localhost:5432/postgres
+        run: |
+          python -m pytest tests/ -v --junitxml=pytest.xml
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: pytest.xml
+
+  linting:
+    name: Code linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install linting tools
+        run: |
+          pip install black isort flake8
+
+      - name: Check code formatting with black
+        run: |
+          black --check src/ tests/
+
+      - name: Check imports sorting with isort
+        run: |
+          isort --check-only src/ tests/
+
+      - name: Check code style with flake8
+        run: |
+          flake8 src/ tests/ --max-line-length=88
+
+      - name: Comment if linting failed
+        if: ${{ failure() }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ Code linting failed! Please run `black .` and `isort .` to fix formatting issues.'
+            })
