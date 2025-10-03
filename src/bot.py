@@ -24,7 +24,7 @@ logging.basicConfig(
 )
 
 settings = get_settings()
-bot = Bot(token=settings.API_TOKEN)
+bot = Bot(token=settings.BOT_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 router = Router()
