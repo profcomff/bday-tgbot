@@ -13,7 +13,7 @@ class Database:
     async def init(self):
         """Инициализация пула соединений"""
         try:
-            dsn = self.settings.ASYNC_PG_DSN
+            dsn = self.settings.DB_DSN
             self.pool = await asyncpg.create_pool(
                 dsn=dsn,
                 min_size=1,
