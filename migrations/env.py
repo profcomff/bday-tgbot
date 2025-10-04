@@ -26,7 +26,7 @@ alembic_url_from_ini = config.get_main_option("sqlalchemy.url")
 if alembic_url_from_ini and alembic_url_from_ini.strip():
     DATABASE_URL_RAW = alembic_url_from_ini
 elif settings is not None and getattr(settings, "DB_DSN", None):
-    DATABASE_URL_RAW = settings.DATABASE_URL
+    DATABASE_URL_RAW = settings.DB_DSN
 else:
     raise RuntimeError(
         "Не найден DATABASE_URL: укажи sqlalchemy.url в alembic.ini "
