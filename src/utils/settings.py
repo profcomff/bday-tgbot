@@ -5,7 +5,7 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     API_TOKEN: str
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/bot_db"
+    DATABASE_URL: str
     REMINDER_OFFSETS: List[int] = [21, 14, 7, 3, 1]
     DEBUG: bool = False
 
