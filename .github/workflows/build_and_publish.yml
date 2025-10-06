@@ -65,6 +65,7 @@ jobs:
           docker run \
             --rm \
             --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --env API_TOKEN=${{ secrets.API_TOKEN }} \
             --name ${{ env.CONTAINER_NAME }}_migration \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test \
             python -m src.database.migrate
