@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS bot_dbday.users (
+CREATE TABLE IF NOT EXISTS bot_bday.users (
     id SERIAL PRIMARY KEY,
     telegram_id BIGINT NOT NULL UNIQUE,
     full_name VARCHAR(255),
