@@ -934,6 +934,9 @@ async def main():
     scheduler.start()
     await schedule_all_reminders()
 
+    # Удаляем вебхук перед запуском полинга
+    await bot.delete_webhook(drop_pending_updates=True)
+
     try:
         await dp.start_polling(bot)
     finally:
