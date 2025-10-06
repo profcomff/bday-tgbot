@@ -83,7 +83,7 @@ async def cmd_start(message: types.Message, state: FSMContext):
     """Обработчик команды /start"""
     async with db.pool.acquire() as conn:
         user = await conn.fetchrow(
-            "SELECT * FROM users WHERE telegram_id = $1", message.from_user.id
+            "SELECT * FROM bot_bday.users WHERE telegram_id = $1", message.from_user.id
         )
 
     if user:
@@ -136,7 +136,7 @@ async def reg_wish(message: types.Message, state: FSMContext):
     async with db.pool.acquire() as conn:
         await conn.execute(
             """
-            INSERT INTO users (telegram_id, full_name, birthday, wish, registered_at)
+            INSERT INTO bot_bday.users (telegram_id, full_name, birthday, wish, registered_at)
             VALUES ($1, $2, $3, $4, NOW())
             """,
             message.from_user.id,
@@ -159,7 +159,7 @@ async def show_my_data(message: types.Message):
     """Показ данных пользователя"""
     async with db.pool.acquire() as conn:
         user = await conn.fetchrow(
-            "SELECT full_name, birthday, wish FROM users WHERE telegram_id = $1",
+            "SELECT full_name, birthday, wish FROM bot_bday.users WHERE telegram_id = $1",
             message.from_user.id,
         )
 
@@ -179,7 +179,7 @@ async def show_ward(message: types.Message):
     """Показ подопечного"""
     async with db.pool.acquire() as conn:
         row = await conn.fetchrow(
-            "SELECT ward_id FROM users WHERE telegram_id = $1", message.from_user.id
+            "SELECT ward_id FROM bot_bday.users WHERE telegram_id = $1", message.from_user.id
         )
 
         if not row or not row.get("ward_id"):
@@ -188,7 +188,7 @@ async def show_ward(message: types.Message):
 
         ward_id = row["ward_id"]
         ward = await conn.fetchrow(
-            "SELECT full_name, birthday, wish FROM users WHERE id = $1", ward_id
+            "SELECT full_name, birthday, wish FROM bot_bday.users WHERE id = $1", ward_id
         )
 
     if not ward:
@@ -250,7 +250,7 @@ async def edit_full_name(message: types.Message, state: FSMContext):
     """Изменение ФИО"""
     async with db.pool.acquire() as conn:
         await conn.execute(
-            "UPDATE users SET full_name = $1 WHERE telegram_id = $2",
+            "UPDATE bot_bday.users SET full_name = $1 WHERE telegram_id = $2",
             message.text,
             message.from_user.id,
         )
@@ -269,7 +269,7 @@ async def edit_birthday(message: types.Message, state: FSMContext):
 
     async with db.pool.acquire() as conn:
         await conn.execute(
-            "UPDATE users SET birthday = $1 WHERE telegram_id = $2",
+            "UPDATE bot_bday.users SET birthday = $1 WHERE telegram_id = $2",
             b,
             message.from_user.id,
         )
@@ -282,7 +282,7 @@ async def edit_wish(message: types.Message, state: FSMContext):
     """Изменение пожеланий"""
     async with db.pool.acquire() as conn:
         await conn.execute(
-            "UPDATE users SET wish = $1 WHERE telegram_id = $2",
+            "UPDATE bot_bday.users SET wish = $1 WHERE telegram_id = $2",
             message.text,
             message.from_user.id,
         )
@@ -300,7 +300,7 @@ async def show_users(message: types.Message):
 
     async with db.pool.acquire() as conn:
         users = await conn.fetch(
-            "SELECT id, full_name, birthday, wish, telegram_id, is_admin, ward_id, giver_id FROM users ORDER BY id"
+            "SELECT id, full_name, birthday, wish, telegram_id, is_admin, ward_id, giver_id FROM bot_bday.users ORDER BY id"
         )
 
     if not users:
@@ -339,9 +339,9 @@ async def show_pairs(message: types.Message):
                     w.full_name AS ward_name,
                     w.birthday AS ward_birthday
                 FROM
-                    users g
+                    bot_bday.users g
                 JOIN
-                    users w ON g.ward_id = w.id
+                    bot_bday.users w ON g.ward_id = w.id
                 ORDER BY
                     w.birthday
             """
@@ -386,7 +386,7 @@ async def random_distribution(message: types.Message):
 
     try:
         async with db.pool.acquire() as conn:
-            users = await conn.fetch("SELECT id FROM users ORDER BY id")
+            users = await conn.fetch("SELECT id FROM bot_bday.users ORDER BY id")
 
             if len(users) < 2:
                 await message.answer(
@@ -406,10 +406,10 @@ async def random_distribution(message: types.Message):
 
             for giver_id, ward_id in pairs:
                 await conn.execute(
-                    "UPDATE users SET ward_id = $1 WHERE id = $2", ward_id, giver_id
+                    "UPDATE bot_bday.users SET ward_id = $1 WHERE id = $2", ward_id, giver_id
                 )
                 await conn.execute(
-                    "UPDATE users SET giver_id = $1 WHERE id = $2", giver_id, ward_id
+                    "UPDATE bot_bday.users SET giver_id = $1 WHERE id = $2", giver_id, ward_id
                 )
 
             logging.info(f"Рандомное распределение по кругу: {shuffled_ids}")
@@ -447,8 +447,8 @@ async def set_pair(message: types.Message):
         return
 
     async with db.pool.acquire() as conn:
-        giver = await conn.fetchrow("SELECT id FROM users WHERE id = $1", giver_id)
-        ward = await conn.fetchrow("SELECT id FROM users WHERE id = $1", ward_id)
+        giver = await conn.fetchrow("SELECT id FROM bot_bday.users WHERE id = $1", giver_id)
+        ward = await conn.fetchrow("SELECT id FROM bot_bday.users WHERE id = $1", ward_id)
 
         if not giver:
             await message.answer(f"Даритель с ID {giver_id} не найден.")
@@ -458,10 +458,10 @@ async def set_pair(message: types.Message):
             return
 
         await conn.execute(
-            "UPDATE users SET ward_id = $1 WHERE id = $2", ward_id, giver_id
+            "UPDATE bot_bday.users SET ward_id = $1 WHERE id = $2", ward_id, giver_id
         )
         await conn.execute(
-            "UPDATE users SET giver_id = $1 WHERE id = $2", giver_id, ward_id
+            "UPDATE bot_bday.users SET giver_id = $1 WHERE id = $2", giver_id, ward_id
         )
 
     await clear_all_reminders()
@@ -500,12 +500,12 @@ async def set_pair_by_name(message: types.Message):
         giver_name, ward_name = names[0], names[1]
     else:
         async with db.pool.acquire() as conn:
-            all_users = await conn.fetch("SELECT id, full_name FROM users")
+            users = await conn.fetch("SELECT id, full_name FROM bot_bday.users")
 
         possible_givers = []
         possible_wards = []
 
-        for user in all_users:
+        for user in users:
             if user["full_name"].lower() in full_text.lower():
                 if not possible_givers:
                     possible_givers.append(user)
@@ -523,10 +523,10 @@ async def set_pair_by_name(message: types.Message):
 
     async with db.pool.acquire() as conn:
         giver = await conn.fetchrow(
-            "SELECT id FROM users WHERE full_name = $1", giver_name
+            "SELECT id FROM bot_bday.users WHERE full_name = $1", giver_name
         )
         ward = await conn.fetchrow(
-            "SELECT id FROM users WHERE full_name = $1", ward_name
+            "SELECT id FROM bot_bday.users WHERE full_name = $1", ward_name
         )
 
         if not giver:
@@ -540,10 +540,10 @@ async def set_pair_by_name(message: types.Message):
         ward_id = ward["id"]
 
         await conn.execute(
-            "UPDATE users SET ward_id = $1 WHERE id = $2", ward_id, giver_id
+            "UPDATE bot_bday.users SET ward_id = $1 WHERE id = $2", ward_id, giver_id
         )
         await conn.execute(
-            "UPDATE users SET giver_id = $1 WHERE id = $2", giver_id, ward_id
+            "UPDATE bot_bday.users SET giver_id = $1 WHERE id = $2", giver_id, ward_id
         )
 
     await clear_all_reminders()
@@ -574,7 +574,7 @@ async def make_admin_command(message: types.Message):
 
     async with db.pool.acquire() as conn:
         user = await conn.fetchrow(
-            "SELECT id FROM users WHERE telegram_id = $1", telegram_id
+            "SELECT id FROM bot_bday.users WHERE telegram_id = $1", telegram_id
         )
 
         if not user:
@@ -582,7 +582,7 @@ async def make_admin_command(message: types.Message):
             return
 
         await conn.execute(
-            "UPDATE users SET is_admin = true WHERE telegram_id = $1", telegram_id
+            "UPDATE bot_bday.users SET is_admin = true WHERE telegram_id = $1", telegram_id
         )
 
     await message.answer(
@@ -614,7 +614,7 @@ async def delete_user(message: types.Message):
 
     async with db.pool.acquire() as conn:
         user = await conn.fetchrow(
-            "SELECT id, ward_id, giver_id FROM users WHERE telegram_id = $1",
+            "SELECT id, ward_id, giver_id FROM bot_bday.users WHERE telegram_id = $1",
             telegram_id,
         )
 
@@ -627,14 +627,14 @@ async def delete_user(message: types.Message):
 
         if ward_id:
             await conn.execute(
-                "UPDATE users SET giver_id = NULL WHERE id = $1", ward_id
+                "UPDATE bot_bday.users SET giver_id = NULL WHERE id = $1", ward_id
             )
         if giver_id:
             await conn.execute(
-                "UPDATE users SET ward_id = NULL WHERE id = $1", giver_id
+                "UPDATE bot_bday.users SET ward_id = NULL WHERE id = $1", giver_id
             )
 
-        await conn.execute("DELETE FROM users WHERE telegram_id = $1", telegram_id)
+        await conn.execute("DELETE FROM bot_bday.users WHERE telegram_id = $1", telegram_id)
 
     await clear_all_reminders()
     await schedule_all_reminders()
@@ -668,7 +668,7 @@ async def revoke_admin_rights(message: types.Message):
 
     async with db.pool.acquire() as conn:
         user = await conn.fetchrow(
-            "SELECT id, is_admin FROM users WHERE telegram_id = $1", telegram_id
+            "SELECT id, is_admin FROM bot_bday.users WHERE telegram_id = $1", telegram_id
         )
 
         if not user:
@@ -682,7 +682,7 @@ async def revoke_admin_rights(message: types.Message):
             return
 
         await conn.execute(
-            "UPDATE users SET is_admin = false WHERE telegram_id = $1", telegram_id
+            "UPDATE bot_bday.users SET is_admin = false WHERE telegram_id = $1", telegram_id
         )
 
     await message.answer(
@@ -701,7 +701,7 @@ async def reset_connections(message: types.Message):
 
     if len(parts) == 1 or parts[1].lower() == "all":
         async with db.pool.acquire() as conn:
-            await conn.execute("UPDATE users SET ward_id = NULL, giver_id = NULL")
+            await conn.execute("UPDATE bot_bday.users SET ward_id = NULL, giver_id = NULL")
         await message.answer("Связи всех пользователей сброшены.")
         await clear_all_reminders()
         return
@@ -716,7 +716,7 @@ async def reset_connections(message: types.Message):
 
     async with db.pool.acquire() as conn:
         user = await conn.fetchrow(
-            "SELECT id, ward_id, giver_id FROM users WHERE id = $1", user_id
+            "SELECT id, ward_id, giver_id FROM bot_bday.users WHERE id = $1", user_id
         )
 
         if not user:
@@ -727,16 +727,16 @@ async def reset_connections(message: types.Message):
         giver_id = user["giver_id"]
 
         await conn.execute(
-            "UPDATE users SET ward_id = NULL, giver_id = NULL WHERE id = $1", user_id
+            "UPDATE bot_bday.users SET ward_id = NULL, giver_id = NULL WHERE id = $1", user_id
         )
 
         if ward_id:
             await conn.execute(
-                "UPDATE users SET giver_id = NULL WHERE id = $1", ward_id
+                "UPDATE bot_bday.users SET giver_id = NULL WHERE id = $1", ward_id
             )
         if giver_id:
             await conn.execute(
-                "UPDATE users SET ward_id = NULL WHERE id = $1", giver_id
+                "UPDATE bot_bday.users SET ward_id = NULL WHERE id = $1", giver_id
             )
 
     await clear_all_reminders()
@@ -772,10 +772,10 @@ async def show_reminders(message: types.Message):
 
         async with db.pool.acquire() as conn:
             giver_info = await conn.fetchrow(
-                "SELECT full_name FROM users WHERE id = $1", giver_id
+                "SELECT full_name FROM bot_bday.users WHERE id = $1", giver_id
             )
             ward_info = await conn.fetchrow(
-                "SELECT full_name FROM users WHERE id = $1", ward_id
+                "SELECT full_name FROM bot_bday.users WHERE id = $1", ward_id
             )
 
         giver_name = giver_info["full_name"] if giver_info else f"ID: {giver_id}"
@@ -854,7 +854,7 @@ async def schedule_all_reminders():
 
     async with db.pool.acquire() as conn:
         rows = await conn.fetch(
-            "SELECT id, birthday, giver_id FROM users WHERE giver_id IS NOT NULL"
+            "SELECT id, birthday, giver_id FROM bot_bday.users WHERE giver_id IS NOT NULL"
         )
 
     now = datetime.now(MSK)
@@ -895,10 +895,10 @@ async def send_reminder(giver_id: int, ward_id: int, days_before: int):
     """Отправка напоминания"""
     async with db.pool.acquire() as conn:
         ward = await conn.fetchrow(
-            "SELECT full_name, birthday, wish FROM users WHERE id = $1", ward_id
+            "SELECT full_name, birthday, wish FROM bot_bday.users WHERE id = $1", ward_id
         )
         giver = await conn.fetchrow(
-            "SELECT telegram_id FROM users WHERE id = $1", giver_id
+            "SELECT telegram_id FROM bot_bday.users WHERE id = $1", giver_id
         )
 
     if not ward or not giver:
