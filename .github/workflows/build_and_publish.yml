@@ -65,10 +65,9 @@ jobs:
           docker run \
             --rm \
             --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
-            --env API_TOKEN=${{ secrets.API_TOKEN }} \
             --name ${{ env.CONTAINER_NAME }}_migration \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test \
-            alembic upgrade head
+            python -m src.database.migrate
       
       - name: Run new version
         run: |
@@ -96,15 +95,15 @@ jobs:
       - name: Pull new version
         run: docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       
-      - name: Migrate DB
-        run: |
-          docker run \
-            --rm \
-            --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
-            --env API_TOKEN=${{ secrets.API_TOKEN }} \
-            --name ${{ env.CONTAINER_NAME }}_migration \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
-            alembic upgrade head
+#      - name: Migrate DB
+#        run: |
+#          docker run \
+#            --rm \
+#            --env DATABASE_URL=${{ secrets.DATABASE_URL }} \
+#            --env API_TOKEN=${{ secrets.API_TOKEN }} \
+#            --name ${{ env.CONTAINER_NAME }}_migration \
+#            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
+#            alembic upgrade head
       
       - name: Run new version
         run: |
