@@ -15,16 +15,31 @@ from apscheduler.triggers.date import DateTrigger
 
 from src.database.db import db
 from src.utils.settings import get_settings
+from src.utils.telegram_logging import TelegramLoggingHandler
 
 logging.basicConfig(
-    filename="event_log.txt",
     level=logging.INFO,
-    format="%(asctime)s %(levelname)s %(message)s",
+    format="%(asctime)s - %(levelname)s - %(message)s",
     encoding="utf-8",
+    handlers=[
+        logging.FileHandler("event_log.txt"),
+        logging.StreamHandler(),
+    ],
 )
 
 settings = get_settings()
 bot = Bot(token=settings.API_TOKEN)
+
+# Add Telegram handler
+if settings.LOGGING_CHAT_ID:
+    tg_handler = TelegramLoggingHandler(bot, settings.LOGGING_CHAT_ID)
+    tg_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
+    tg_handler.setFormatter(formatter)
+    logging.getLogger().addHandler(tg_handler)
+
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 router = Router()

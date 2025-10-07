@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str
     REMINDER_OFFSETS: List[int] = [21, 14, 7, 3, 1]
     DEBUG: bool = False
+    LOGGING_CHAT_ID: int = 772164110
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
