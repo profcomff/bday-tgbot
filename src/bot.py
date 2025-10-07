@@ -699,51 +699,114 @@ async def reset_connections(message: types.Message):
 
     parts = message.text.split()
 
-    if len(parts) == 1 or parts[1].lower() == "all":
+    # /reset all
+    if len(parts) == 2 and parts[1].lower() == "all":
         async with db.pool.acquire() as conn:
             await conn.execute("UPDATE bot_bday.users SET ward_id = NULL, giver_id = NULL")
         await message.answer("Связи всех пользователей сброшены.")
         await clear_all_reminders()
         return
 
-    try:
-        user_id = int(parts[1])
-    except ValueError:
+    # /reset <user_id1> <user_id2>
+    if len(parts) == 3:
+        try:
+            user_id1 = int(parts[1])
+            user_id2 = int(parts[2])
+        except ValueError:
+            await message.answer(
+                "Ошибка: ID должны быть числами. Используйте `/reset <id1> <id2>`"
+            )
+            return
+
+        async with db.pool.acquire() as conn:
+            # Проверяем, что оба пользователя существуют
+            user1 = await conn.fetchrow("SELECT id FROM bot_bday.users WHERE id = $1", user_id1)
+            user2 = await conn.fetchrow("SELECT id FROM bot_bday.users WHERE id = $1", user_id2)
+
+            if not user1:
+                await message.answer(f"Пользователь с ID {user_id1} не найден.")
+                return
+            if not user2:
+                await message.answer(f"Пользователь с ID {user_id2} не найден.")
+                return
+
+            # Удаляем связь в обе стороны
+            await conn.execute(
+                "UPDATE bot_bday.users SET ward_id = NULL WHERE id = $1 AND ward_id = $2",
+                user_id1,
+                user_id2,
+            )
+            await conn.execute(
+                "UPDATE bot_bday.users SET giver_id = NULL WHERE id = $1 AND giver_id = $2",
+                user_id2,
+                user_id1,
+            )
+            # И наоборот
+            await conn.execute(
+                "UPDATE bot_bday.users SET ward_id = NULL WHERE id = $1 AND ward_id = $2",
+                user_id2,
+                user_id1,
+            )
+            await conn.execute(
+                "UPDATE bot_bday.users SET giver_id = NULL WHERE id = $1 AND giver_id = $2",
+                user_id1,
+                user_id2,
+            )
+
+        await clear_all_reminders()
+        await schedule_all_reminders()
+        await message.answer(f"Связь между пользователями #{user_id1} и #{user_id2} разорвана.")
+        return
+
+    # /reset <user_id>
+    if len(parts) == 2:
+        try:
+            user_id = int(parts[1])
+        except ValueError:
+            await message.answer(
+                "Ошибка: ID должен быть числом. Используйте `/reset <user_id>`"
+            )
+            return
+
+        async with db.pool.acquire() as conn:
+            user = await conn.fetchrow(
+                "SELECT id, ward_id, giver_id FROM bot_bday.users WHERE id = $1", user_id
+            )
+
+            if not user:
+                await message.answer(f"Пользователь с ID {user_id} не найден.")
+                return
+
+            ward_id = user["ward_id"]
+            giver_id = user["giver_id"]
+
+            # Сбрасываем связи для указанного пользователя
+            await conn.execute(
+                "UPDATE bot_bday.users SET ward_id = NULL, giver_id = NULL WHERE id = $1", user_id
+            )
+
+            # Сбрасываем соответствующие связи у его пары
+            if ward_id:
+                await conn.execute(
+                    "UPDATE bot_bday.users SET giver_id = NULL WHERE id = $1", ward_id
+                )
+            if giver_id:
+                await conn.execute(
+                    "UPDATE bot_bday.users SET ward_id = NULL WHERE id = $1", giver_id
+                )
+
+        await clear_all_reminders()
+        await schedule_all_reminders()
         await message.answer(
-            "Ошибка: ID должен быть числом. Используйте `/admin_reset [user_id]` или `/admin_reset all`"
+            f"Связи пользователя #{user_id} и связанных с ним пользователей сброшены. Напоминания обновлены."
         )
         return
 
-    async with db.pool.acquire() as conn:
-        user = await conn.fetchrow(
-            "SELECT id, ward_id, giver_id FROM bot_bday.users WHERE id = $1", user_id
-        )
-
-        if not user:
-            await message.answer(f"Пользователь с ID {user_id} не найден.")
-            return
-
-        ward_id = user["ward_id"]
-        giver_id = user["giver_id"]
-
-        await conn.execute(
-            "UPDATE bot_bday.users SET ward_id = NULL, giver_id = NULL WHERE id = $1", user_id
-        )
-
-        if ward_id:
-            await conn.execute(
-                "UPDATE bot_bday.users SET giver_id = NULL WHERE id = $1", ward_id
-            )
-        if giver_id:
-            await conn.execute(
-                "UPDATE bot_bday.users SET ward_id = NULL WHERE id = $1", giver_id
-            )
-
-    await clear_all_reminders()
-    await schedule_all_reminders()
-
     await message.answer(
-        f"Связи пользователя #{user_id} и связанных с ним пользователей сброшены. Напоминания обновлены."
+        "Использование:\n"
+        "• `/reset all` - сбросить все связи\n"
+        "• `/reset <user_id>` - сбросить связи одного пользователя\n"
+        "• `/reset <id1> <id2>` - разорвать связь между двумя пользователями"
     )
 
 
