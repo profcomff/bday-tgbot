@@ -427,7 +427,7 @@ async def random_distribution(message: types.Message):
             Command("set")
         )
 
-
+@router.message(Command("set"))
 async def set_pair(message: types.Message):
     """Назначение пары вручную по ID"""
     if not await db.is_admin(message.from_user.id):
