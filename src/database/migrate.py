@@ -16,7 +16,6 @@ async def apply_migrations():
     try:
         conn = await asyncpg.connect(dsn=settings.ASYNC_PG_DSN)
 
-
         migrations_dir = "migrations"
         if not os.path.exists(migrations_dir):
             logging.info("Migrations directory not found. No migrations to apply.")
